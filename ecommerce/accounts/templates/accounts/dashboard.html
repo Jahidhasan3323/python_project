@@ -1,0 +1,62 @@
+{% extends "accounts/base.html" %}
+
+{% block content %}
+{% include 'accounts/status.html' %}
+
+<div class="row">
+	<div class="col-md-5">
+		<h5>CUSTOMERS:</h5>
+		
+		
+		<hr>
+		<div class="card card-body"> 
+			<a class="btn btn-primary  btn-sm btn-block" href="">Create Customer</a>
+			<table class="table table-sm">
+				<tr>
+					<th>Serial</th>
+					<th>Customer</th>
+					<th>Phone</th>
+					<th>Action</th>
+				</tr>
+				{% for row in customers  %}
+					<tr>
+						<td>{{forloop.counter}}</td>
+						<td>{{row.name}}</td>
+						<td>{{row.phone}}</td>
+						<td><a href="customer/{{row.id}}" class="btn btn-info">Details</a></td>
+					</tr>
+				{% endfor %}
+
+			</table>
+		</div>
+	</div>
+
+	<div class="col-md-7">
+		<h5>LAST 5 ORDERS</h5>
+		<hr>
+		<div class="card card-body">
+			<a class="btn btn-primary  btn-sm btn-block" href="{% url 'create_order' %}">Create Order</a>
+			<table class="table table-sm">
+				<tr>
+					<th>Serial</th>
+					<th>Product</th>
+					<th>Date Orderd</th>
+					<th>Status</th>
+					
+				</tr>
+				{% for row in last_5order  %}
+					<tr>
+						<td>{{forloop.counter}}</td>
+						<td>{{row.product}}</td>
+						<td>{{row.date_created}}</td>
+						<td>{{row.status}}</td>
+						
+					</tr>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+
+</div>
+  
+{% endblock  %}

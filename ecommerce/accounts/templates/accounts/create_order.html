@@ -1,0 +1,23 @@
+{%  extends 'accounts/base.html' %}
+
+{% block content %}
+
+		<br>
+
+		<div class="row">
+			<div class="col-md">
+				<div class="card card-body">
+					<h5>Create Order</h5>
+				</div>
+				<div class="card card-body">
+					<form action="" method="POST">
+						{% csrf_token %}
+						{{form}}
+						<button type="submit" class="btn btn-success">Submit</button>
+					</form>
+				</div>
+			</div>
+			
+		</div>
+
+{% endblock content %}
