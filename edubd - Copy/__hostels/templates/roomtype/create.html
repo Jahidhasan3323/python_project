@@ -1,0 +1,26 @@
+{% extends "institute/base.html" %}
+
+{% block content %}
+
+<div class="col-md-6">
+				<div class="card card-header">
+					<h4>Add New Room Type</h4>
+				</div>
+				<div class="card card-body">
+					<form action="" method="POST">
+						{% csrf_token %}
+						<div class="form-group">
+							<label for="exampleInputEmail1">Type</label>
+							{{form.type}}
+							<span class="text-danger">{{form.errors.type}}</span>
+						</div>
+						<div class="form-group">
+							<label for="exampleInputEmail1">Description</label>
+							{{form.description}}
+							<span class="text-danger">{{form.errors.description}}</span>
+						</div>
+						<button type="submit" class="btn btn-success">Submit</button>
+					</form>
+				</div>
+			</div>
+{% endblock %}
